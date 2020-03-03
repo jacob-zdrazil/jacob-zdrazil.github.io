@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Bouncing Box</title>
+	<script src="jquery.min.js"></script>
+	<style>
+		.box {
+			width: 70px;
+			height: 70px;
+			background-color: teal;
+			font-size: 300%;
+			text-align: center;
+			display: block;
+			position: absolute;
+			top: 100px;
+			left: 200;  /* <--- Change me! */
+		}
+		
+		.box {
+			background-color: purple;
+		}
+		
+		.board {
+			
+			background-image: url("data:image/jpeg;base64,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");                                                                                                        ;
+			background-size: 200px;
+	
+		}
+		
+	</style>
+	<!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+
+</head>
+<body class="board">
+	<!-- HTML for the box -->
+	<div class="box">?</div>
+
+	<script>
+		(function(){
+			'use strict'
+			/* global jQuery */
+
+			//////////////////////////////////////////////////////////////////
+			/////////////////// SETUP DO NOT DELETE //////////////////////////
+			//////////////////////////////////////////////////////////////////
+			
+			var box = jQuery('.box');	// reference to the HTML .box element
+			var board = jQuery('.board');	// reference to the HTML .board element
+			var boardWidth = board.width();	// the maximum X-Coordinate of the screen
+			var boardHeight = jQuery(window).height(100);
+			
+
+			// Every 50 milliseconds, call the update Function (see below)
+			setInterval(update, 50);
+			
+			// Every time the box is clicked, call the handleBoxClick Function (see below)
+			box.on('click', handleBoxClick);
+
+			moveBoxTo (0,0);
+			// moves the Box to a new position on the screen along the X-Axis
+			function moveBoxTo(newPositionX, newPositionY) {
+				box.css("left", newPositionX);
+				box.css("top", newPositionY);
+			}
+
+			// changes the text displayed on the Box
+			function changeBoxText(newText) {
+				box.text(newText);
+			}
+
+			//////////////////////////////////////////////////////////////////
+			/////////////////// YOUR CODE BELOW HERE /////////////////////////
+			//////////////////////////////////////////////////////////////////
+			
+			// TODO 2 - Variable declarations 
+			var positionX = 0;
+			var points = 0;
+			var speed = 10;
+			
+			var positionY = 0;
+			var speedY = 10;
+		
+			
+			/* 
+			This Function will be called 20 times/second. Each time it is called,
+			it should move the Box to a new location. If the box drifts off the screen
+			turn it around! 
+			*/
+			function update() {
+				positionX = positionX + speed;
+				positionY = positionY + speedY;
+				moveBoxTo(positionX, positionY);
+
+				if (positionX > boardWidth) {
+				speed = -speed;
+				}
+				
+				if (positionX < 0) {
+					speed = speed * -1;
+				}
+			
+				if (positionY > 600) {
+					speedY = -speedY;
+				}
+			
+				if (positionY < 0) {
+					speedY = speedY * -1;
+				}
+			
+			};
+
+			/* 
+			This Function will be called each time the box is clicked. Each time it is called,
+			it should increase the points total, increase the speed, and move the box to
+			the left side of the screen.
+			*/
+			function handleBoxClick() {
+				var randNum = Math.floor(Math.random() * (boardWidth - 0))
+				var randNumY = Math.floor(Math.random() * (boardWidth - 0))
+				positionX = randNum;
+				positionY = randNumY;
+				
+				points = points + 1;
+				
+				speed = speed + 3;
+				
+				changeBoxText(points);
+				
+
+
+			};
+		})();
+	</script>
+</body>
+</html>
